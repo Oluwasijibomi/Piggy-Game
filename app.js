@@ -38,9 +38,10 @@ function btnHold() {
 
     if (gamePlaying) {
             scores[activePlayer] += roundScore;
-        document.getElementById("score-" + activePlayer).textContent = scores[activePlayer];
+            document.getElementById("score-" + activePlayer).textContent = scores[activePlayer];
+            let input = document.querySelector(".final-score").value;
 
-        if (scores[activePlayer] >= 20) {
+        if (scores[activePlayer] >= input) {
             document.querySelector("#name-" + activePlayer).textContent = "winner";
             document.querySelector(".dice").style.display = "none";
             document.querySelector(".player-" + activePlayer + "-panel").classList.add("winner");
@@ -103,6 +104,4 @@ function init() {
     document.querySelector(".player-" + activePlayer + "-panel").classList.remove("winner");
     document.querySelector(".player-" + activePlayer + "-panel").classList.add("active");
     gamePlaying = true;
-    
-   
 }
